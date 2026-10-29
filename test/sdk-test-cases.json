@@ -1,0 +1,773 @@
+[
+  {
+    "id": "behavior-1",
+    "operationId": "listMe",
+    "method": "GET",
+    "path": "/me",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": ["auth-application", "error-response", "json-response"],
+    "parameters": [],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "name": "Example Name",
+        "scopes": ["workspaces:read"],
+        "expiresAt": "2024-01-01T00:00:00Z",
+        "lastUsedAt": "2024-01-01T00:00:00Z",
+        "createdAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-2",
+    "operationId": "listWorkspaces",
+    "method": "GET",
+    "path": "/workspaces",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+    "parameters": [
+      {
+        "name": "limit",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 1
+      },
+      {
+        "name": "startingAfter",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "startingAfter"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "data": [
+          {
+            "id": "id-1",
+            "name": "Example Name",
+            "plan": "FREE",
+            "submissionsQuota": 1,
+            "createdAt": "2024-01-01T00:00:00Z",
+            "updatedAt": "2024-01-01T00:00:00Z"
+          }
+        ],
+        "hasMore": false,
+        "nextCursor": "nextCursor"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-3",
+    "operationId": "createWorkspace",
+    "method": "POST",
+    "path": "/workspaces",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+    "parameters": [],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "name": "Example Name"
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "id": "id-1",
+        "name": "Example Name",
+        "plan": "FREE",
+        "submissionsQuota": 1,
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-4",
+    "operationId": "updateWorkspace",
+    "method": "PATCH",
+    "path": "/workspaces/{workspaceId}",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"PATCH\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "workspaceId",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "workspace-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "name": "Example Name"
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "id": "id-1",
+        "name": "Example Name",
+        "plan": "FREE",
+        "submissionsQuota": 1,
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-5",
+    "operationId": "listForms",
+    "method": "GET",
+    "path": "/forms",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":true,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+    "parameters": [
+      {
+        "name": "limit",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 1
+      },
+      {
+        "name": "startingAfter",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "startingAfter"
+      },
+      {
+        "name": "workspaceId",
+        "location": "query",
+        "required": true,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "workspace-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "data": [
+          {
+            "id": "id-1",
+            "name": "Example Name",
+            "description": "example text",
+            "technology": "technology",
+            "workspaceId": "workspace-1",
+            "notificationEmails": ["user@example.com"],
+            "emailThreading": false,
+            "automaticSpamFilter": false,
+            "webhookUrl": "https://example.com",
+            "slackChannel": "slackChannel",
+            "customHoneypot": "customHoneypot",
+            "customSpamWords": "customSpamWords",
+            "allowedDomains": ["allowedDomains"],
+            "spamProtection": "BOTPOISON",
+            "createdAt": "2024-01-01T00:00:00Z",
+            "updatedAt": "2024-01-01T00:00:00Z"
+          }
+        ],
+        "hasMore": false,
+        "nextCursor": "nextCursor"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-6",
+    "operationId": "getForm",
+    "method": "GET",
+    "path": "/forms/{formId}",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+    "parameters": [
+      {
+        "name": "formId",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "form-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "id": "id-1",
+        "name": "Example Name",
+        "description": "example text",
+        "technology": "technology",
+        "workspaceId": "workspace-1",
+        "notificationEmails": ["user@example.com"],
+        "emailThreading": false,
+        "automaticSpamFilter": false,
+        "webhookUrl": "https://example.com",
+        "slackChannel": "slackChannel",
+        "customHoneypot": "customHoneypot",
+        "customSpamWords": "customSpamWords",
+        "allowedDomains": ["allowedDomains"],
+        "spamProtection": "BOTPOISON",
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-7",
+    "operationId": "deleteForm",
+    "method": "DELETE",
+    "path": "/forms/{formId}",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"DELETE\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"empty\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+    "parameters": [
+      {
+        "name": "formId",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "form-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": null,
+      "kind": "empty",
+      "value": null
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-8",
+    "operationId": "getTemplate",
+    "method": "GET",
+    "path": "/forms/{formId}/templates/{kind}",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+    "parameters": [
+      {
+        "name": "formId",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "form-1"
+      },
+      {
+        "name": "kind",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "notification"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "kind": "notification",
+        "mode": "visual",
+        "code": "code",
+        "subject": "subject",
+        "updatedAt": "2024-01-01T00:00:00Z",
+        "paused": false
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-9",
+    "operationId": "updateTemplate",
+    "method": "PUT",
+    "path": "/forms/{formId}/templates/{kind}",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"PUT\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "formId",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "form-1"
+      },
+      {
+        "name": "kind",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "notification"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "code": "x",
+        "subject": "subject"
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "kind": "notification",
+        "mode": "visual",
+        "code": "code",
+        "subject": "subject",
+        "updatedAt": "2024-01-01T00:00:00Z",
+        "paused": false
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-10",
+    "operationId": "deleteTemplate",
+    "method": "DELETE",
+    "path": "/forms/{formId}/templates/{kind}",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"DELETE\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"empty\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+    "parameters": [
+      {
+        "name": "formId",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "form-1"
+      },
+      {
+        "name": "kind",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "notification"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": null,
+      "kind": "empty",
+      "value": null
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-11",
+    "operationId": "createPreview",
+    "method": "POST",
+    "path": "/forms/{formId}/templates/{kind}/preview",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "formId",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "form-1"
+      },
+      {
+        "name": "kind",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "notification"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "data": {
+          "key": null
+        }
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "html": "html",
+        "text": "text",
+        "subject": "subject"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-12",
+    "operationId": "listSubmissions",
+    "method": "GET",
+    "path": "/forms/{formId}/submissions",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "formId",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "form-1"
+      },
+      {
+        "name": "limit",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 1
+      },
+      {
+        "name": "startingAfter",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "startingAfter"
+      },
+      {
+        "name": "search",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "x"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "data": [
+          {
+            "id": "id-1",
+            "formId": "form-1",
+            "data": {
+              "key": null
+            },
+            "createdAt": "2024-01-01T00:00:00Z"
+          }
+        ],
+        "hasMore": false,
+        "nextCursor": "nextCursor"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-13",
+    "operationId": "deleteSubmission",
+    "method": "DELETE",
+    "path": "/submissions/{submissionId}",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\",\"json\",\"json\",\"json\"],\"method\":\"DELETE\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"empty\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+    "parameters": [
+      {
+        "name": "submissionId",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "submission-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": null,
+      "kind": "empty",
+      "value": null
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  }
+]

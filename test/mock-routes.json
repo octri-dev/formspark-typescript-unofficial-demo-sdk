@@ -1,0 +1,3457 @@
+[
+  {
+    "operationId": "createPreview",
+    "summary": "Previews a form's email template without sending an email. Use `kind` to choose the notification or autoresponder template, and optionally provide `data` to render the template with specific submission values. If you omit `data`, the preview uses example data derived from the form's recent submissions.",
+    "method": "POST",
+    "pathTemplate": "/forms/{formId}/templates/{kind}/preview",
+    "regexSource": "^/forms/(?<sdkPath0>[^/]+)/templates/(?<sdkPath1>(?:(?:notification|autoresponder)))/preview$",
+    "pathParams": ["formId", "kind"],
+    "pathParameters": [
+      {
+        "wireName": "formId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "form-1",
+        "routeRepresentative": "sdk-route-1"
+      },
+      {
+        "wireName": "kind",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "notification",
+        "routeRepresentative": "notification"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 21,
+      "constrainedParameters": 1,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 12,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "data",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "data": {
+            "key": null
+          }
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "html": "html",
+          "text": "text",
+          "subject": "subject"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "503": [
+        {
+          "statusCode": "503",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true,
+      "503": true
+    }
+  },
+  {
+    "operationId": "listSubmissions_2",
+    "summary": "Lists submissions across every form in a workspace, with the newest submissions first. Use `workspaceId` to select the workspace and `search` to filter results; spam and deleted submissions are excluded, and `limit` and `startingAfter` control pagination.",
+    "method": "GET",
+    "pathTemplate": "/workspaces/{workspaceId}/submissions",
+    "regexSource": "^/workspaces/(?<sdkPath0>[^/]+)/submissions$",
+    "pathParams": ["workspaceId"],
+    "pathParameters": [
+      {
+        "wireName": "workspaceId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "workspace-1",
+        "routeRepresentative": "sdk-route-1"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "limit",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "startingAfter",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "startingAfter"
+      },
+      {
+        "wireName": "search",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 21,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 14,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "data": [
+            {
+              "id": "id-1",
+              "formId": "form-1",
+              "data": {
+                "key": null
+              },
+              "createdAt": "2024-01-01T00:00:00Z"
+            }
+          ],
+          "hasMore": false,
+          "nextCursor": "nextCursor"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "listSubmissions",
+    "summary": "Lists submissions for a specific form, with the newest submissions first. Use `formId` to select the form and `search` to filter results; spam and deleted submissions are excluded, and `limit` and `startingAfter` control pagination.",
+    "method": "GET",
+    "pathTemplate": "/forms/{formId}/submissions",
+    "regexSource": "^/forms/(?<sdkPath0>[^/]+)/submissions$",
+    "pathParams": ["formId"],
+    "pathParameters": [
+      {
+        "wireName": "formId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "form-1",
+        "routeRepresentative": "sdk-route-1"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "limit",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "startingAfter",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "startingAfter"
+      },
+      {
+        "wireName": "search",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 16,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 13,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "data": [
+            {
+              "id": "id-1",
+              "formId": "form-1",
+              "data": {
+                "key": null
+              },
+              "createdAt": "2024-01-01T00:00:00Z"
+            }
+          ],
+          "hasMore": false,
+          "nextCursor": "nextCursor"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "deleteTemplate",
+    "summary": "Deletes a form's email template for the selected template kind. Deleting a notification template restores the default layout, while deleting an autoresponder template also turns the autoresponder off.",
+    "method": "DELETE",
+    "pathTemplate": "/forms/{formId}/templates/{kind}",
+    "regexSource": "^/forms/(?<sdkPath0>[^/]+)/templates/(?<sdkPath1>(?:(?:notification|autoresponder)))$",
+    "pathParams": ["formId", "kind"],
+    "pathParameters": [
+      {
+        "wireName": "formId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "form-1",
+        "routeRepresentative": "sdk-route-1"
+      },
+      {
+        "wireName": "kind",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "notification",
+        "routeRepresentative": "notification"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 14,
+      "constrainedParameters": 1,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 11,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "204",
+        "mediaType": null,
+        "decoderKind": "empty",
+        "example": null,
+        "bodyBase64": null,
+        "exampleSource": "none",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "503": [
+        {
+          "statusCode": "503",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true,
+      "503": true
+    }
+  },
+  {
+    "operationId": "getTemplate",
+    "summary": "Retrieves an email template associated with a form. Use `kind` to select the notification template sent to recipients or the autoresponder sent to submitters.",
+    "method": "GET",
+    "pathTemplate": "/forms/{formId}/templates/{kind}",
+    "regexSource": "^/forms/(?<sdkPath0>[^/]+)/templates/(?<sdkPath1>(?:(?:notification|autoresponder)))$",
+    "pathParams": ["formId", "kind"],
+    "pathParameters": [
+      {
+        "wireName": "formId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "form-1",
+        "routeRepresentative": "sdk-route-1"
+      },
+      {
+        "wireName": "kind",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "notification",
+        "routeRepresentative": "notification"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 14,
+      "constrainedParameters": 1,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 9,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "kind": "notification",
+          "mode": "visual",
+          "code": "code",
+          "subject": "subject",
+          "updatedAt": "2024-01-01T00:00:00Z",
+          "paused": false
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "503": [
+        {
+          "statusCode": "503",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true,
+      "503": true
+    }
+  },
+  {
+    "operationId": "updateTemplate",
+    "summary": "Replaces or creates an email template for a form. Send `code`, `subject`, or both; omitted fields keep their current values, and creating an autoresponder template switches the autoresponder on. Writing code replaces a visual-editor layout and cannot be undone.",
+    "method": "PUT",
+    "pathTemplate": "/forms/{formId}/templates/{kind}",
+    "regexSource": "^/forms/(?<sdkPath0>[^/]+)/templates/(?<sdkPath1>(?:(?:notification|autoresponder)))$",
+    "pathParams": ["formId", "kind"],
+    "pathParameters": [
+      {
+        "wireName": "formId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "form-1",
+        "routeRepresentative": "sdk-route-1"
+      },
+      {
+        "wireName": "kind",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "notification",
+        "routeRepresentative": "notification"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 14,
+      "constrainedParameters": 1,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 10,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "code",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "subject",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "code": "x",
+          "subject": "subject"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "kind": "notification",
+          "mode": "visual",
+          "code": "code",
+          "subject": "subject",
+          "updatedAt": "2024-01-01T00:00:00Z",
+          "paused": false
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "409": [
+        {
+          "statusCode": "409",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "503": [
+        {
+          "statusCode": "503",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "409": true,
+      "429": true,
+      "500": true,
+      "503": true
+    }
+  },
+  {
+    "operationId": "listWorkspaces",
+    "summary": "Lists workspaces that the authenticated user belongs to, with the newest first. Use `limit` and `startingAfter` to control page size and paginate through results; the default limit is 25.",
+    "method": "GET",
+    "pathTemplate": "/workspaces",
+    "regexSource": "^/workspaces$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [
+      {
+        "wireName": "limit",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "startingAfter",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "startingAfter"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 10,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 1,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "data": [
+            {
+              "id": "id-1",
+              "name": "Example Name",
+              "plan": "FREE",
+              "submissionsQuota": 1,
+              "createdAt": "2024-01-01T00:00:00Z",
+              "updatedAt": "2024-01-01T00:00:00Z"
+            }
+          ],
+          "hasMore": false,
+          "nextCursor": "nextCursor"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "createWorkspace",
+    "summary": "Creates a new workspace for the authenticated user. Supply a `name` between 1 and 128 characters to identify the workspace. A 201 response returns the created workspace and its plan and submissions quota.",
+    "method": "POST",
+    "pathTemplate": "/workspaces",
+    "regexSource": "^/workspaces$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 10,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 2,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": ["name"],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "Example Name"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "id": "id-1",
+          "name": "Example Name",
+          "plan": "FREE",
+          "submissionsQuota": 1,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "listForms",
+    "summary": "Lists forms in a workspace, with the newest forms first. Supply the `workspaceId` to select a workspace, and use `startingAfter` to continue from a cursor; the default page contains up to 25 forms, while `limit` can request up to 100.",
+    "method": "GET",
+    "pathTemplate": "/forms",
+    "regexSource": "^/forms$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [
+      {
+        "wireName": "limit",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "startingAfter",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "startingAfter"
+      },
+      {
+        "wireName": "workspaceId",
+        "required": true,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "workspace-1"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 5,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 4,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "data": [
+            {
+              "id": "id-1",
+              "name": "Example Name",
+              "description": "example text",
+              "technology": "technology",
+              "workspaceId": "workspace-1",
+              "notificationEmails": ["user@example.com"],
+              "emailThreading": false,
+              "automaticSpamFilter": false,
+              "webhookUrl": "https://example.com",
+              "slackChannel": "slackChannel",
+              "customHoneypot": "customHoneypot",
+              "customSpamWords": "customSpamWords",
+              "allowedDomains": ["allowedDomains"],
+              "spamProtection": "BOTPOISON",
+              "createdAt": "2024-01-01T00:00:00Z",
+              "updatedAt": "2024-01-01T00:00:00Z"
+            }
+          ],
+          "hasMore": false,
+          "nextCursor": "nextCursor"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "createForm",
+    "summary": "Creates a form in a workspace and applies any settings supplied with it. Provide the required `name` and `workspaceId`, then include any form settings you want to configure; `spamProtection` requires the corresponding provider secret key.",
+    "method": "POST",
+    "pathTemplate": "/forms",
+    "regexSource": "^/forms$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 5,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 5,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": ["name", "workspaceId"],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "technology",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "notificationEmails",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "emailThreading",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "automaticSpamFilter",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "webhookUrl",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "slackChannel",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "customHoneypot",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "customSpamWords",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "allowedDomains",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "spamProtection",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "botpoisonSecretKey",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "recaptchaV2SecretKey",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "hCaptchaSecretKey",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "turnstileSecretKey",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "workspaceId",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "Example Name",
+          "description": "example text",
+          "technology": "technology",
+          "notificationEmails": ["user@example.com"],
+          "emailThreading": false,
+          "automaticSpamFilter": false,
+          "webhookUrl": "https://example.com",
+          "slackChannel": "slackChannel",
+          "customHoneypot": "customHoneypot",
+          "customSpamWords": "customSpamWords",
+          "allowedDomains": ["allowedDomains"],
+          "spamProtection": "BOTPOISON",
+          "botpoisonSecretKey": "x",
+          "recaptchaV2SecretKey": "x",
+          "hCaptchaSecretKey": "x",
+          "turnstileSecretKey": "x",
+          "workspaceId": "workspace-1"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "id": "id-1",
+          "name": "Example Name",
+          "description": "example text",
+          "technology": "technology",
+          "workspaceId": "workspace-1",
+          "notificationEmails": ["user@example.com"],
+          "emailThreading": false,
+          "automaticSpamFilter": false,
+          "webhookUrl": "https://example.com",
+          "slackChannel": "slackChannel",
+          "customHoneypot": "customHoneypot",
+          "customSpamWords": "customSpamWords",
+          "allowedDomains": ["allowedDomains"],
+          "spamProtection": "BOTPOISON",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "listMe",
+    "summary": "Retrieves the name, scopes, and expiry details of the token used by the authenticated user. Use this operation to inspect the access and validity details associated with that token.",
+    "method": "GET",
+    "pathTemplate": "/me",
+    "regexSource": "^/me$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 2,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 0,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "name": "Example Name",
+          "scopes": ["workspaces:read"],
+          "expiresAt": "2024-01-01T00:00:00Z",
+          "lastUsedAt": "2024-01-01T00:00:00Z",
+          "createdAt": "2024-01-01T00:00:00Z"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "deleteSubmission",
+    "summary": "Deletes a stored form submission identified by its unique submission ID. Use `submissionId` to target the record; quarantined spam submissions cannot be deleted. A successful deletion returns no response body.",
+    "method": "DELETE",
+    "pathTemplate": "/submissions/{submissionId}",
+    "regexSource": "^/submissions/(?<sdkPath0>[^/]+)$",
+    "pathParams": ["submissionId"],
+    "pathParameters": [
+      {
+        "wireName": "submissionId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "submission-1",
+        "routeRepresentative": "sdk-route-1"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 1,
+      "totalSegments": 2,
+      "staticCharacterCount": 11,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 15,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "204",
+        "mediaType": null,
+        "decoderKind": "empty",
+        "example": null,
+        "bodyBase64": null,
+        "exampleSource": "none",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "409": [
+        {
+          "statusCode": "409",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "409": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "updateWorkspace",
+    "summary": "Updates the name of an existing workspace for the authenticated user. Supply the `workspaceId` path parameter and a `name` between 1 and 128 characters; fields not included in the request are not described by this schema.",
+    "method": "PATCH",
+    "pathTemplate": "/workspaces/{workspaceId}",
+    "regexSource": "^/workspaces/(?<sdkPath0>[^/]+)$",
+    "pathParams": ["workspaceId"],
+    "pathParameters": [
+      {
+        "wireName": "workspaceId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "workspace-1",
+        "routeRepresentative": "sdk-route-1"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 1,
+      "totalSegments": 2,
+      "staticCharacterCount": 10,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 3,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": ["name"],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "Example Name"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "id": "id-1",
+          "name": "Example Name",
+          "plan": "FREE",
+          "submissionsQuota": 1,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "deleteForm",
+    "summary": "Deletes a form identified by its `formId`. Use this operation when the form should no longer be available; the response confirms deletion without returning a form object.",
+    "method": "DELETE",
+    "pathTemplate": "/forms/{formId}",
+    "regexSource": "^/forms/(?<sdkPath0>[^/]+)$",
+    "pathParams": ["formId"],
+    "pathParameters": [
+      {
+        "wireName": "formId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "form-1",
+        "routeRepresentative": "sdk-route-1"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 1,
+      "totalSegments": 2,
+      "staticCharacterCount": 5,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 8,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "204",
+        "mediaType": null,
+        "decoderKind": "empty",
+        "example": null,
+        "bodyBase64": null,
+        "exampleSource": "none",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "getForm",
+    "summary": "Retrieves a form by its `formId`. Use this operation to inspect the form's configuration, including its submission settings, notification options, and spam protection settings.",
+    "method": "GET",
+    "pathTemplate": "/forms/{formId}",
+    "regexSource": "^/forms/(?<sdkPath0>[^/]+)$",
+    "pathParams": ["formId"],
+    "pathParameters": [
+      {
+        "wireName": "formId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "form-1",
+        "routeRepresentative": "sdk-route-1"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 1,
+      "totalSegments": 2,
+      "staticCharacterCount": 5,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 6,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "id": "id-1",
+          "name": "Example Name",
+          "description": "example text",
+          "technology": "technology",
+          "workspaceId": "workspace-1",
+          "notificationEmails": ["user@example.com"],
+          "emailThreading": false,
+          "automaticSpamFilter": false,
+          "webhookUrl": "https://example.com",
+          "slackChannel": "slackChannel",
+          "customHoneypot": "customHoneypot",
+          "customSpamWords": "customSpamWords",
+          "allowedDomains": ["allowedDomains"],
+          "spamProtection": "BOTPOISON",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  },
+  {
+    "operationId": "updateForm",
+    "summary": "Updates a form by applying only the fields included in the request body; all other settings remain unchanged. Supply the `formId` path parameter and the settings to change, such as `name`, `allowedDomains`, or `spamProtection`.",
+    "method": "PATCH",
+    "pathTemplate": "/forms/{formId}",
+    "regexSource": "^/forms/(?<sdkPath0>[^/]+)$",
+    "pathParams": ["formId"],
+    "pathParameters": [
+      {
+        "wireName": "formId",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "form-1",
+        "routeRepresentative": "sdk-route-1"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 1,
+      "totalSegments": 2,
+      "staticCharacterCount": 5,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 7,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "technology",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "notificationEmails",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "emailThreading",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "automaticSpamFilter",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "webhookUrl",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "slackChannel",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "customHoneypot",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "customSpamWords",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "allowedDomains",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "spamProtection",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "botpoisonSecretKey",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "recaptchaV2SecretKey",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "hCaptchaSecretKey",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "turnstileSecretKey",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "Example Name",
+          "description": "example text",
+          "technology": "technology",
+          "notificationEmails": ["user@example.com"],
+          "emailThreading": false,
+          "automaticSpamFilter": false,
+          "webhookUrl": "https://example.com",
+          "slackChannel": "slackChannel",
+          "customHoneypot": "customHoneypot",
+          "customSpamWords": "customSpamWords",
+          "allowedDomains": ["allowedDomains"],
+          "spamProtection": "BOTPOISON",
+          "botpoisonSecretKey": "x",
+          "recaptchaV2SecretKey": "x",
+          "hCaptchaSecretKey": "x",
+          "turnstileSecretKey": "x"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "id": "id-1",
+          "name": "Example Name",
+          "description": "example text",
+          "technology": "technology",
+          "workspaceId": "workspace-1",
+          "notificationEmails": ["user@example.com"],
+          "emailThreading": false,
+          "automaticSpamFilter": false,
+          "webhookUrl": "https://example.com",
+          "slackChannel": "slackChannel",
+          "customHoneypot": "customHoneypot",
+          "customSpamWords": "customSpamWords",
+          "allowedDomains": ["allowedDomains"],
+          "spamProtection": "BOTPOISON",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "500": [
+        {
+          "statusCode": "500",
+          "mediaType": "application/problem+json",
+          "decoderKind": "json",
+          "example": {
+            "type": "type",
+            "title": "title",
+            "status": 1,
+            "detail": "detail",
+            "code": "code"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "403": true,
+      "404": true,
+      "429": true,
+      "500": true
+    }
+  }
+]

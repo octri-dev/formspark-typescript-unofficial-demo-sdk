@@ -1,0 +1,49 @@
+{
+  "name": "formspark-octri-preview-sdk",
+  "description": "Create and manage forms, and read their submissions. Authenticate with an API token created in the Formspark dashboard. A token carries the access of the account that created it, so it reaches every workspace that account belongs to. Reading or writing a workspace's forms and submissions requires that workspace to be on a paid plan. Requests are rate limited per IP address, and a rejected request should be retried after a pause.\n\nUnofficial Octri full-spec preview from public source. Only cited core paths have local mock validation; other generated methods remain unverified against live service.",
+  "version": "1.0.1",
+  "keywords": [
+    "formspark",
+    "api",
+    "unofficial",
+    "octri",
+    "full",
+    "preview",
+    "sdk",
+    "client"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "format": "oxfmt --check src test/*.mjs",
+    "lint": "oxlint src test",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test \"test/**/*.test.mjs\"",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "oxfmt": "^0.59.0",
+    "oxlint": "^1.0.0",
+    "typescript": "^5.4.0"
+  }
+}

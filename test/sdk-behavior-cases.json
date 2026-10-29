@@ -1,0 +1,825 @@
+{
+  "baseUrl": "https://behavior.test",
+  "operationCount": 16,
+  "credentials": {
+    "bearer": "behavior-bearer-token",
+    "apiKey": "behavior-api-key",
+    "basicUser": "behavior-user",
+    "basicPassword": "behavior-password",
+    "basicHeader": "Basic YmVoYXZpb3ItdXNlcjpiZWhhdmlvci1wYXNzd29yZA=="
+  },
+  "authHeaders": {},
+  "cases": [
+    {
+      "id": "behavior-1",
+      "operationId": "listMe",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/me",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/me",
+        "query": "",
+        "url": "https://behavior.test/me",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"name\":\"Example Name\",\"scopes\":[\"workspaces:read\"],\"expiresAt\":\"2024-01-01T00:00:00Z\",\"lastUsedAt\":\"2024-01-01T00:00:00Z\",\"createdAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "name": "Example Name",
+          "scopes": ["workspaces:read"],
+          "expiresAt": "2024-01-01T00:00:00Z",
+          "lastUsedAt": "2024-01-01T00:00:00Z",
+          "createdAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-2",
+      "operationId": "listWorkspaces",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/workspaces",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 1,
+            "serialized": "1"
+          },
+          {
+            "name": "startingAfter",
+            "style": "form",
+            "explode": true,
+            "value": "startingAfter",
+            "serialized": "startingAfter"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/workspaces",
+        "query": "limit=1&startingAfter=startingAfter",
+        "url": "https://behavior.test/workspaces?limit=1&startingAfter=startingAfter",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"plan\":\"FREE\",\"submissionsQuota\":1,\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}],\"hasMore\":false,\"nextCursor\":\"nextCursor\"}",
+        "value": {
+          "data": [
+            {
+              "id": "id-1",
+              "name": "Example Name",
+              "plan": "FREE",
+              "submissionsQuota": 1,
+              "createdAt": "2024-01-01T00:00:00Z",
+              "updatedAt": "2024-01-01T00:00:00Z"
+            }
+          ],
+          "hasMore": false,
+          "nextCursor": "nextCursor"
+        }
+      }
+    },
+    {
+      "id": "behavior-3",
+      "operationId": "createWorkspace",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/workspaces",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Example Name"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/workspaces",
+        "query": "",
+        "url": "https://behavior.test/workspaces",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Example Name\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"id-1\",\"name\":\"Example Name\",\"plan\":\"FREE\",\"submissionsQuota\":1,\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "id-1",
+          "name": "Example Name",
+          "plan": "FREE",
+          "submissionsQuota": 1,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-4",
+      "operationId": "updateWorkspace",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PATCH",
+        "pathTemplate": "/workspaces/{workspaceId}",
+        "pathParameters": {
+          "workspaceId": "workspace-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Example Name"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "PATCH",
+        "path": "/workspaces/workspace-1",
+        "query": "",
+        "url": "https://behavior.test/workspaces/workspace-1",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Example Name\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"id-1\",\"name\":\"Example Name\",\"plan\":\"FREE\",\"submissionsQuota\":1,\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "id-1",
+          "name": "Example Name",
+          "plan": "FREE",
+          "submissionsQuota": 1,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-5",
+      "operationId": "listForms",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/forms",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 1,
+            "serialized": "1"
+          },
+          {
+            "name": "startingAfter",
+            "style": "form",
+            "explode": true,
+            "value": "startingAfter",
+            "serialized": "startingAfter"
+          },
+          {
+            "name": "workspaceId",
+            "style": "form",
+            "explode": true,
+            "value": "workspace-1",
+            "serialized": "workspace-1"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/forms",
+        "query": "limit=1&startingAfter=startingAfter&workspaceId=workspace-1",
+        "url": "https://behavior.test/forms?limit=1&startingAfter=startingAfter&workspaceId=workspace-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"description\":\"example text\",\"technology\":\"technology\",\"workspaceId\":\"workspace-1\",\"notificationEmails\":[\"user@example.com\"],\"emailThreading\":false,\"automaticSpamFilter\":false,\"webhookUrl\":\"https://example.com\",\"slackChannel\":\"slackChannel\",\"customHoneypot\":\"customHoneypot\",\"customSpamWords\":\"customSpamWords\",\"allowedDomains\":[\"allowedDomains\"],\"spamProtection\":\"BOTPOISON\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}],\"hasMore\":false,\"nextCursor\":\"nextCursor\"}",
+        "value": {
+          "data": [
+            {
+              "id": "id-1",
+              "name": "Example Name",
+              "description": "example text",
+              "technology": "technology",
+              "workspaceId": "workspace-1",
+              "notificationEmails": ["user@example.com"],
+              "emailThreading": false,
+              "automaticSpamFilter": false,
+              "webhookUrl": "https://example.com",
+              "slackChannel": "slackChannel",
+              "customHoneypot": "customHoneypot",
+              "customSpamWords": "customSpamWords",
+              "allowedDomains": ["allowedDomains"],
+              "spamProtection": "BOTPOISON",
+              "createdAt": "2024-01-01T00:00:00Z",
+              "updatedAt": "2024-01-01T00:00:00Z"
+            }
+          ],
+          "hasMore": false,
+          "nextCursor": "nextCursor"
+        }
+      }
+    },
+    {
+      "id": "behavior-6",
+      "operationId": "getForm",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/forms/{formId}",
+        "pathParameters": {
+          "formId": "form-1"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/forms/form-1",
+        "query": "",
+        "url": "https://behavior.test/forms/form-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"id-1\",\"name\":\"Example Name\",\"description\":\"example text\",\"technology\":\"technology\",\"workspaceId\":\"workspace-1\",\"notificationEmails\":[\"user@example.com\"],\"emailThreading\":false,\"automaticSpamFilter\":false,\"webhookUrl\":\"https://example.com\",\"slackChannel\":\"slackChannel\",\"customHoneypot\":\"customHoneypot\",\"customSpamWords\":\"customSpamWords\",\"allowedDomains\":[\"allowedDomains\"],\"spamProtection\":\"BOTPOISON\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "id-1",
+          "name": "Example Name",
+          "description": "example text",
+          "technology": "technology",
+          "workspaceId": "workspace-1",
+          "notificationEmails": ["user@example.com"],
+          "emailThreading": false,
+          "automaticSpamFilter": false,
+          "webhookUrl": "https://example.com",
+          "slackChannel": "slackChannel",
+          "customHoneypot": "customHoneypot",
+          "customSpamWords": "customSpamWords",
+          "allowedDomains": ["allowedDomains"],
+          "spamProtection": "BOTPOISON",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-7",
+      "operationId": "deleteForm",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/forms/{formId}",
+        "pathParameters": {
+          "formId": "form-1"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/forms/form-1",
+        "query": "",
+        "url": "https://behavior.test/forms/form-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-8",
+      "operationId": "getTemplate",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/forms/{formId}/templates/{kind}",
+        "pathParameters": {
+          "formId": "form-1",
+          "kind": "notification"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/forms/form-1/templates/notification",
+        "query": "",
+        "url": "https://behavior.test/forms/form-1/templates/notification",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"kind\":\"notification\",\"mode\":\"visual\",\"code\":\"code\",\"subject\":\"subject\",\"updatedAt\":\"2024-01-01T00:00:00Z\",\"paused\":false}",
+        "value": {
+          "kind": "notification",
+          "mode": "visual",
+          "code": "code",
+          "subject": "subject",
+          "updatedAt": "2024-01-01T00:00:00Z",
+          "paused": false
+        }
+      }
+    },
+    {
+      "id": "behavior-9",
+      "operationId": "updateTemplate",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PUT",
+        "pathTemplate": "/forms/{formId}/templates/{kind}",
+        "pathParameters": {
+          "formId": "form-1",
+          "kind": "notification"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "code": "x",
+          "subject": "subject"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "PUT",
+        "path": "/forms/form-1/templates/notification",
+        "query": "",
+        "url": "https://behavior.test/forms/form-1/templates/notification",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"code\":\"x\",\"subject\":\"subject\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"kind\":\"notification\",\"mode\":\"visual\",\"code\":\"code\",\"subject\":\"subject\",\"updatedAt\":\"2024-01-01T00:00:00Z\",\"paused\":false}",
+        "value": {
+          "kind": "notification",
+          "mode": "visual",
+          "code": "code",
+          "subject": "subject",
+          "updatedAt": "2024-01-01T00:00:00Z",
+          "paused": false
+        }
+      }
+    },
+    {
+      "id": "behavior-10",
+      "operationId": "deleteTemplate",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/forms/{formId}/templates/{kind}",
+        "pathParameters": {
+          "formId": "form-1",
+          "kind": "notification"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/forms/form-1/templates/notification",
+        "query": "",
+        "url": "https://behavior.test/forms/form-1/templates/notification",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-11",
+      "operationId": "createPreview",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/forms/{formId}/templates/{kind}/preview",
+        "pathParameters": {
+          "formId": "form-1",
+          "kind": "notification"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "data": {}
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/forms/form-1/templates/notification/preview",
+        "query": "",
+        "url": "https://behavior.test/forms/form-1/templates/notification/preview",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"data\":{}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"html\":\"html\",\"text\":\"text\",\"subject\":\"subject\"}",
+        "value": {
+          "html": "html",
+          "text": "text",
+          "subject": "subject"
+        }
+      }
+    },
+    {
+      "id": "behavior-12",
+      "operationId": "listSubmissions",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/forms/{formId}/submissions",
+        "pathParameters": {
+          "formId": "form-1"
+        },
+        "query": [
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 1,
+            "serialized": "1"
+          },
+          {
+            "name": "startingAfter",
+            "style": "form",
+            "explode": true,
+            "value": "startingAfter",
+            "serialized": "startingAfter"
+          },
+          {
+            "name": "search",
+            "style": "form",
+            "explode": true,
+            "value": "x",
+            "serialized": "x"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/forms/form-1/submissions",
+        "query": "limit=1&startingAfter=startingAfter&search=x",
+        "url": "https://behavior.test/forms/form-1/submissions?limit=1&startingAfter=startingAfter&search=x",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"data\":[{\"id\":\"id-1\",\"formId\":\"form-1\",\"data\":{\"key\":null},\"createdAt\":\"2024-01-01T00:00:00Z\"}],\"hasMore\":false,\"nextCursor\":\"nextCursor\"}",
+        "value": {
+          "data": [
+            {
+              "id": "id-1",
+              "formId": "form-1",
+              "data": {
+                "key": null
+              },
+              "createdAt": "2024-01-01T00:00:00Z"
+            }
+          ],
+          "hasMore": false,
+          "nextCursor": "nextCursor"
+        }
+      }
+    },
+    {
+      "id": "behavior-13",
+      "operationId": "deleteSubmission",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/submissions/{submissionId}",
+        "pathParameters": {
+          "submissionId": "submission-1"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/submissions/submission-1",
+        "query": "",
+        "url": "https://behavior.test/submissions/submission-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-1-default-base-url",
+      "operationId": "listMe",
+      "kinds": [],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/me",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/me",
+        "query": "",
+        "url": "https://api.formspark.io/public/v1/me",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"name\":\"Example Name\",\"scopes\":[\"workspaces:read\"],\"expiresAt\":\"2024-01-01T00:00:00Z\",\"lastUsedAt\":\"2024-01-01T00:00:00Z\",\"createdAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "name": "Example Name",
+          "scopes": ["workspaces:read"],
+          "expiresAt": "2024-01-01T00:00:00Z",
+          "lastUsedAt": "2024-01-01T00:00:00Z",
+          "createdAt": "2024-01-01T00:00:00Z"
+        }
+      },
+      "probe": "default-base-url"
+    },
+    {
+      "id": "behavior-3-lost-response",
+      "operationId": "createWorkspace",
+      "kinds": [],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/workspaces",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Example Name"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/workspaces",
+        "query": "",
+        "url": "https://behavior.test/workspaces",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Example Name\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"id-1\",\"name\":\"Example Name\",\"plan\":\"FREE\",\"submissionsQuota\":1,\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "id-1",
+          "name": "Example Name",
+          "plan": "FREE",
+          "submissionsQuota": 1,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+      },
+      "probe": "lost-response"
+    },
+    {
+      "id": "behavior-1-response-decode",
+      "operationId": "listMe",
+      "kinds": [],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/me",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/me",
+        "query": "",
+        "url": "https://behavior.test/me",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"truncated\": ",
+        "errorKind": "ResponseDecode"
+      },
+      "probe": "response-decode"
+    }
+  ]
+}
